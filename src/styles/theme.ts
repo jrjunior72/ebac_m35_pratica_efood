@@ -7,7 +7,8 @@ export const theme = {
     white: '#FFFFFF',
     text: '#4B4B4B',
     lightGray: '#F5F5F5',
-    gray: '#E0E0E0'
+    gray: '#E0E0E0',
+    yellow: '#FFB930'
   },
   fonts: {
     primary: 'Roboto, sans-serif'

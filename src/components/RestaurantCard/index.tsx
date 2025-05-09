@@ -1,5 +1,6 @@
 import * as S from './styles'
 import { Restaurant } from '../../types'
+import star from '../../assets/images/estrela.svg'
 
 type RestaurantCardProps = {
   restaurant: Restaurant
@@ -13,7 +14,8 @@ export function RestaurantCard({ restaurant }: RestaurantCardProps) {
         <S.CardHeader>
           <S.CardTitle>{restaurant.name}</S.CardTitle>
           <S.CardRating>
-            <span>{restaurant.rating}</span> ★
+            <span>{restaurant.rating}</span>
+            <img src={star} alt="rating" />
           </S.CardRating>
         </S.CardHeader>
         <S.CardDescription>{restaurant.description}</S.CardDescription>

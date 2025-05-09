@@ -10,37 +10,37 @@ export const CardContainer = styled.div`
   height: 100%;
   display: flex;
   flex-direction: column;
-    &:hover {
+  &:hover {
     transform: translateY(-5px);
     box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
   }
-`;
+`
 
 export const CardImage = styled.img`
   width: 100%;
   height: 217px;
   object-fit: cover;
-`;
+`
 
 export const CardContent = styled.div`
   padding: 16px;
   flex: 1;
   display: flex;
   flex-direction: column;
-`;
+`
 
 export const CardHeader = styled.div`
   display: flex;
   justify-content: space-between;
   align-items: center;
   margin-bottom: 12px;
-`;
+`
 
 export const CardTitle = styled.h3`
   font-size: 18px;
   color: ${theme.colors.primary};
   font-weight: bold;
-`;
+`
 
 export const CardRating = styled.div`
   display: flex;
@@ -52,7 +52,12 @@ export const CardRating = styled.div`
   span {
     font-size: 18px;
   }
-`;
+
+  img {
+    height: 21px;
+    width: 21px;
+  }
+`
 
 export const CardDescription = styled.p`
   font-size: 14px;
@@ -60,7 +65,7 @@ export const CardDescription = styled.p`
   line-height: 1.5;
   margin-bottom: 16px;
   flex: 1;
-`;
+`
 
 export const CardButton = styled.button`
   background-color: ${theme.colors.primary};
@@ -79,4 +84,4 @@ export const CardButton = styled.button`
     background-color: ${theme.colors.primary};
     color: ${theme.colors.white};
   }
-`;
+`
