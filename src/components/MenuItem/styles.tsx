@@ -6,10 +6,8 @@ export const ItemContainer = styled.div`
   border: 1px solid ${theme.colors.primary};
   border-radius: 8px;
   overflow: hidden;
-  display: flex;
-  flex-direction: column;
-  height: 100%;
   transition: all 0.3s ease;
+  height: 100%;
 
   &:hover {
     transform: translateY(-5px);
@@ -23,53 +21,69 @@ export const ItemImage = styled.img`
   object-fit: cover;
 `
 
-export const ItemContent = styled.div`
-  padding: ${theme.spacing.medium};
-  flex: 1;
-  display: flex;
-  flex-direction: column;
+export const ItemInfo = styled.div`
+  padding: 16px;
 `
 
-export const ItemTitle = styled.h3`
-  font-size: 16px;
+export const ItemName = styled.h3`
+  font-size: 18px;
   color: ${theme.colors.primary};
-  margin-bottom: ${theme.spacing.small};
+  margin-bottom: 8px;
 `
 
 export const ItemDescription = styled.p`
   font-size: 14px;
   color: ${theme.colors.text};
-  margin-bottom: ${theme.spacing.medium};
-  flex: 1;
+  margin-bottom: 16px;
+  line-height: 1.5;
 `
 
 export const ItemPrice = styled.span`
+  display: block;
   font-size: 16px;
   font-weight: bold;
   color: ${theme.colors.primary};
-  margin-bottom: ${theme.spacing.small};
-  display: block;
+  margin-bottom: 16px;
+`
+
+export const ItemHeader = styled.div`
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 8px;
+`
+
+export const ItemServing = styled.span`
+  font-size: 12px;
+  color: ${theme.colors.text};
+  background: ${theme.colors.lightGray};
+  padding: 2px 6px;
+  border-radius: 4px;
+`
+
+export const ItemFooter = styled.div`
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin: 12px 0;
+`
+
+export const ItemReviews = styled.span`
+  font-size: 12px;
+  color: ${theme.colors.text};
 `
 
 export const AddButton = styled.button`
   background-color: ${theme.colors.primary};
-  color: ${theme.colors.secondary};
+  color: ${theme.colors.white};
   border: none;
-  padding: ${theme.spacing.small};
-  font-size: 14px;
-  font-weight: bold;
+  padding: 8px 16px;
   border-radius: 4px;
+  font-weight: bold;
   cursor: pointer;
-  transition: background-color 0.3s ease;
-  width: 100%;
-  margin-top: auto;
+  transition: background-color 0.3s;
 
   &:hover {
     background-color: ${theme.colors.primaryDark};
-  }
-
-  &:disabled {
-    background-color: ${theme.colors.gray};
-    cursor: not-allowed;
   }
 `
