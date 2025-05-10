@@ -4,14 +4,33 @@ import rest2 from '../assets/images/restaurante2.png'
 
 export const restaurants: Restaurant[] = [
   {
-    id: '1',
-    name: 'La Dolce Vita',
-    rating: 4.5,
-    description:
-      'Peça já o melhor da culinária japonesa no conforto da sua casa! Sushis frescos, sashimis deliciosos e pratos quentes irresistíveis. Entrega rápida, embalagens cuidadosas e qualidade garantida.Experimente o Japão sem sair do lar com nosso delivery!',
+    id: 1,
+    name: "Hioki Sushi",
+    highlighted: true,
+    category: "Japanese",
+    rating: 4.9,
+    description: "Peça já o melhor da culinária japonesa no conforto da sua casa! Sushis frescos, sashimis deliciosos e pratos quentes irresistíveis. Entrega rápida, embalagens cuidadosas e qualidade garantida.Experimente o Japão sem sair do lar com nosso delivery!",
     image: rest1,
-    category: 'Italiana',
-    deliveryTime: '30-40 min'
+    menuItems: [
+      {
+        id: 1,
+        name: "Sushi Variado",
+        description: "10 peças de sushi variado com salmão, atum e camarão",
+        image: "/img/sushi-variado.png",
+        price: 89.9,
+        serving: "10 peças",
+        category: "Sushi"
+      },
+      {
+        id: 2,
+        name: "Sashimi Premium",
+        description: "15 fatias finas de peixe cru selecionado",
+        image: "/img/sashimi.png",
+        price: 129.9,
+        serving: "15 fatias",
+        category: "Sashimi"
+      }
+    ]
   },
   {
     id: '2',

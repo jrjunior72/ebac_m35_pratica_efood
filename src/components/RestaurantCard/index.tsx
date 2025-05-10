@@ -1,6 +1,7 @@
 import * as S from './styles'
 import { Restaurant } from '../../types'
 import star from '../../assets/images/estrela.svg'
+import { Link } from 'react-router-dom'
 
 type RestaurantCardProps = {
   restaurant: Restaurant
@@ -19,7 +20,9 @@ export function RestaurantCard({ restaurant }: RestaurantCardProps) {
           </S.CardRating>
         </S.CardHeader>
         <S.CardDescription>{restaurant.description}</S.CardDescription>
-        <S.CardButton>Saiba mais</S.CardButton>
+        <Link to={"/Restaurant/:id"}>
+          <S.CardButton>Saiba mais</S.CardButton>
+        </Link>
       </S.CardContent>
     </S.CardContainer>
   )

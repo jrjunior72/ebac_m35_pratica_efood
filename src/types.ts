@@ -2,7 +2,7 @@ import { ReactNode } from 'react'
 
 export interface MenuItem {
   [x: string]: ReactNode
-  id: string
+  id: number
   name: string
   description: string
   price: number
@@ -13,11 +13,14 @@ export interface MenuItem {
 }
 
 export interface Restaurant {
-  id: string
+  id: number
   name: string
+  highlighted: boolean
+  type: string
   rating: number
   description: string
   image: string
   category: string
   deliveryTime: string
+  menuItems: MenuItem[]
 }
