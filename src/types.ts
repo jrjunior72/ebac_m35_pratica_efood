@@ -16,11 +16,10 @@ export interface Restaurant {
   id: number
   name: string
   highlighted: boolean
-  type: string
   rating: number
   description: string
   image: string
   category: string
-  deliveryTime: string
+  deliveryTime?: string
   menuItems: MenuItem[]
 }

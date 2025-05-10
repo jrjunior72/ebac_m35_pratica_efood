@@ -1,63 +1,98 @@
-# eFood - Plataforma de Delivery
+# eFood - Plataforma de Delivery (Desenvolvimento em Andamento)
 
-![Home Screenshot](/public/screenshots/home.png) | ![Restaurant Screenshot](/public/screenshots/restaurant.png)
+![Status](https://img.shields.io/badge/Status-Em%20Desenvolvimento-orange)
+![React](https://img.shields.io/badge/React-18.2-blue)
+![TypeScript](https://img.shields.io/badge/TypeScript-5.0-blue)
+![Styled Components](https://img.shields.io/badge/Styled%20Components-6.0-green)
 
-## Funcionalidades Implementadas
+## 📌 Progresso Atual
 
-✅ **Homepage**
+### ✅ Etapas Concluídas
 
-- Listagem de restaurantes em grid
-- Banner promocional
-- Header e Footer completos
+1. **Configuração Inicial do Projeto**
+   - [x] Setup do projeto React + TypeScript
+   - [x] Instalação e configuração do Styled Components
+   - [x] Configuração básica do React Router
 
-✅ **Página do Restaurante**
+2. **Página Home**
+   - [x] Criação do componente `RestaurantCard`
+   - [x] Implementação do `RestaurantList`
+   - [x] Integração com dados mockados
+   - [x] Estilização básica conforme Figma
 
-- Perfil com foto e informações
-- Menu organizado por categorias
-- Adição de itens ao carrinho
+3. **Navegação**
+   - [x] Configuração das rotas básicas
+   - [x] Link "Saiba mais" funcionando
 
-## Próximas Etapas
+### 🚧 Em Desenvolvimento Atual
 
-🛠 **Em Desenvolvimento**
+**Página Restaurant** (70% concluída)
+- [x] Estrutura básica da página
+- [x] Componente `MenuSection` criado
+- [ ] Finalização da estilização do cabeçalho
+- [ ] Ajustes de layout nos cards de menu
+- [ ] Responsividade completa
 
-- Página de checkout
-- Integração com API de pagamentos
+## 🔍 Layout de Referência
 
-## Como Executar
+[![Figma](https://img.shields.io/badge/Visualizar%20Layout-Figma-FF6B6B?logo=figma)](https://www.figma.com/file/JjduV2Tg713TzYUUsees8b/efood)
 
-1. Instale as dependências:
+## 🛠️ Como Executar o Projeto
 
+1. Clone o repositório:
+```bash
+git clone https://github.com/jrjunior72/ebac_m35_pratica_eplay.git
+```
+
+2. Instale as dependências:
 ```bash
 npm install
 ```
 
-2. Inicie o servidor de desenvolvimento:
-
+3. Execute o ambiente de desenvolvimento:
 ```bash
 npm run dev
 ```
 
-3. Acesse no navegador:
-
-```
-http://localhost:5173
-```
-
-## Estrutura do Projeto
-
-```
+📂 Estrutura do Projeto (Atual)
+```bash
 src/
-├── components/    # Componentes reutilizáveis
-├── pages/         # Páginas da aplicação
-├── styles/        # Estilos globais e temas
-├── mocks/         # Dados simulados
-└── assets/        # Imagens e recursos
+├── components/
+│   ├── RestaurantCard/   # Card de restaurante (completo)
+│   ├── RestaurantList/   # Listagem (completa)
+│   ├── MenuSection/      # Em desenvolvimento
+│   ├── MenuList/         # Parcialmente completo
+│   └── MenuItem/         # Em ajustes
+├── pages/
+│   ├── Home/             # Página inicial (completa)
+│   └── Restaurant/       # Página em desenvolvimento
+├── mocks/
+│   └── restaurant.ts     # Dados mockados
+├── types.ts              # Tipagens
+└── App.tsx               # Rotas
 ```
 
-## Tecnologias Utilizadas
+⏭️ Próximos Passos
+1. Finalizar a página Restaurant:
+    * Completar estilização
 
-- React 18
-- TypeScript
-- Styled Components
-- React Router
-- Vite
+    * Ajustar componentes de menu
+
+    * Garantir responsividade
+2. Implementar novas funcionalidades:
+
+    * Sistema de carrinho
+
+    * Filtros por categoria
+
+    * Página de checkout
+
+
+📌 Pendências Atuais
+* Finalizar componente MenuItem
+
+* Ajustar espaçamentos no MenuSection
+
+* Corrigir alinhamento dos cards
+
+* Testes em diferentes breakpoints
