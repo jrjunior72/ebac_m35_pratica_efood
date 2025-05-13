@@ -1,46 +1,46 @@
+// src/pages/Restaurant/index.tsx
 import { useParams } from 'react-router-dom'
-import { RestaurantInfo } from '../../components/RestaurantInfo'
-import { MenuSection } from '../../components/MenuSection'
-import * as S from './styles'
+import { MenuList } from '../../components/MenuList'
 import { restaurants } from '../../mocks/restaurant'
-import { MenuItem } from '../../types' // Adicione esta tipagem se ainda não existir
+import {
+  Container,
+  Banner,
+  RestaurantHeader,
+  RestaurantInfo,
+  Rating
+} from './styles'
 
 export function RestaurantProfile() {
-  const { id } = useParams<{ id: string }>()
+  const { id } = useParams()
+  const restaurant = restaurants.find((r) => r.id === Number(id))
 
-  // Encontra o restaurante e já trata o tipo do ID
-  const restaurant = restaurants.find((r) => r.id.toString() === id)
+  // Adicione estes logs para depuração
+  console.log('ID da URL:', id)
+  console.log('Todos restaurantes:', restaurants)
+
+  // Log adicional
+  console.log('Restaurante encontrado:', restaurant)
 
   if (!restaurant) {
     return <div>Restaurante não encontrado</div>
   }
 
-  // Transforma o menu do restaurante no formato esperado pelo MenuSection
-  const transformMenuSections = (): MenuItem[] => {
-    // Agrupa itens por categoria (ajuste conforme sua estrutura real)
-    const categories = [...new Set(restaurant.menu.map((item: { category: unknown }) => item.category))]
-
-    return categories.map(category => ({
-      id: category.toLowerCase().replace(/\s+/g, '-'),
-      name: category,
-      items: restaurant.menu.filter(item => item.category === category)
-    }))
-  }
-
-  const menuSections = transformMenuSections()
-
   return (
-    <S.RestaurantPage>
-      <RestaurantInfo restaurant={restaurant} />
+    <Container>
+      {/* Banner com imagem de capa */}
+      <Banner style={{ backgroundImage: `url(${restaurant.cover})` }} />
 
-      <S.MenuContainer>
-        {menuSections.map((section) => (
-          <MenuSection
-            key={section.id}
-            section={section}
-          />
-        ))}
-      </S.MenuContainer>
-    </S.RestaurantPage>
+      {/* Informações do restaurante */}
+      <RestaurantHeader className="container">
+        <RestaurantInfo>
+          <h2>{restaurant.name}</h2>
+          <Rating>Avaliação: {restaurant.rating}</Rating>
+          <p>{restaurant.description}</p>
+        </RestaurantInfo>
+      </RestaurantHeader>
+
+      {/* Lista de itens do cardápio - REAPROVEITANDO SEU COMPONENTE */}
+      <MenuList items={restaurant.dishes} />
+    </Container>
   )
 }

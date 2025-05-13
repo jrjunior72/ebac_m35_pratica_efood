@@ -10,11 +10,13 @@
 ### ✅ Etapas Concluídas
 
 1. **Configuração Inicial do Projeto**
+
    - [x] Setup do projeto React + TypeScript
    - [x] Instalação e configuração do Styled Components
    - [x] Configuração básica do React Router
 
 2. **Página Home**
+
    - [x] Criação do componente `RestaurantCard`
    - [x] Implementação do `RestaurantList`
    - [x] Integração com dados mockados
@@ -27,6 +29,7 @@
 ### 🚧 Em Desenvolvimento Atual
 
 **Página Restaurant** (70% concluída)
+
 - [x] Estrutura básica da página
 - [x] Componente `MenuSection` criado
 - [ ] Finalização da estilização do cabeçalho
@@ -40,21 +43,25 @@
 ## 🛠️ Como Executar o Projeto
 
 1. Clone o repositório:
+
 ```bash
 git clone https://github.com/jrjunior72/ebac_m35_pratica_eplay.git
 ```
 
 2. Instale as dependências:
+
 ```bash
 npm install
 ```
 
 3. Execute o ambiente de desenvolvimento:
+
 ```bash
 npm run dev
 ```
 
 📂 Estrutura do Projeto (Atual)
+
 ```bash
 src/
 ├── components/
@@ -73,26 +80,29 @@ src/
 ```
 
 ⏭️ Próximos Passos
+
 1. Finalizar a página Restaurant:
-    * Completar estilização
 
-    * Ajustar componentes de menu
+   - Completar estilização
 
-    * Garantir responsividade
+   - Ajustar componentes de menu
+
+   - Garantir responsividade
+
 2. Implementar novas funcionalidades:
 
-    * Sistema de carrinho
+   - Sistema de carrinho
 
-    * Filtros por categoria
+   - Filtros por categoria
 
-    * Página de checkout
-
+   - Página de checkout
 
 📌 Pendências Atuais
-* Finalizar componente MenuItem
 
-* Ajustar espaçamentos no MenuSection
+- Finalizar componente MenuItem
 
-* Corrigir alinhamento dos cards
+- Ajustar espaçamentos no MenuSection
 
-* Testes em diferentes breakpoints
+- Corrigir alinhamento dos cards
+
+- Testes em diferentes breakpoints

@@ -12,7 +12,7 @@ export function MenuList({ items }: MenuListProps) {
       <S.MenuTitle>Cardápio</S.MenuTitle>
       <S.MenuItems>
         {items.map((item) => (
-          <MenuItem key={item.id} item={item} />
+          <MenuItem key={item.id} dish={item} />
         ))}
       </S.MenuItems>
     </S.MenuContainer>

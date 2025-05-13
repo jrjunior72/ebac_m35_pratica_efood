@@ -20,7 +20,7 @@ export function RestaurantCard({ restaurant }: RestaurantCardProps) {
           </S.CardRating>
         </S.CardHeader>
         <S.CardDescription>{restaurant.description}</S.CardDescription>
-        <Link to={"/Restaurant/:id"}>
+        <Link to={`/Restaurant/${restaurant.id}`}>
           <S.CardButton>Saiba mais</S.CardButton>
         </Link>
       </S.CardContent>
