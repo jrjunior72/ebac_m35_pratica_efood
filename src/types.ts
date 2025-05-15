@@ -7,7 +7,7 @@ export interface MenuItem {
   description: string
   price: number
   photo: string
-  quantity?: number // Adicione esta linha
+  quantity?: number
   servingSize?: string
   reviews?: number
 }
@@ -15,11 +15,12 @@ export interface MenuItem {
 export interface Restaurant {
   id: number
   name: string
-  highlighted: boolean
+  highlighted?: boolean
+  cover?: string
   rating: number
   description: string
   image: string
-  category: string
+  category?: string
   deliveryTime?: string
   dishes: MenuItem[]
 }

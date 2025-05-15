@@ -2,7 +2,6 @@ import { ThemeProvider } from 'styled-components'
 import { GlobalStyle } from './styles/global'
 import { theme } from './styles/theme'
 import { Outlet } from 'react-router-dom'
-import Header from './components/Header'
 import { CartProvider } from './contexts/CartContext'
 
 function App() {
@@ -10,7 +9,7 @@ function App() {
     <ThemeProvider theme={theme}>
       <CartProvider>
         <GlobalStyle />
-        <Header />
+        {/* NÃO inclua Header genérico aqui */}
         <Outlet />
       </CartProvider>
     </ThemeProvider>
