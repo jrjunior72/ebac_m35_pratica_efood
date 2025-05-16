@@ -8,8 +8,8 @@ type MenuListProps = {
 
 export function MenuList({ items }: MenuListProps) {
   return (
-    <S.MenuContainer>
-      <S.MenuTitle>Cardápio</S.MenuTitle>
+    <S.MenuContainer className="container">
+      {/* <S.MenuTitle>Cardápio</S.MenuTitle> */}
       <S.MenuItems>
         {items.map((item) => (
           <MenuItem key={item.id} dish={item} />

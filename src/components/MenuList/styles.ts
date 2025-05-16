@@ -2,7 +2,8 @@ import styled from 'styled-components'
 import { theme } from '../../styles/theme'
 
 export const MenuContainer = styled.div`
-  margin-top: 40px;
+  margin-top: 56px;
+  margin-bottom: 120px;
 `
 
 export const MenuTitle = styled.h2`

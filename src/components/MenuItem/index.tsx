@@ -1,6 +1,6 @@
 import * as S from './styles'
 import { useCartContext } from '../../contexts/CartContext'
-import { formatCurrency } from '../../utils/formatCurrency'
+// import { formatCurrency } from '../../utils/formatCurrency'
 import { MenuItem as MenuItemType } from '../../types'
 
 type MenuItemProps = {
@@ -16,26 +16,25 @@ export function MenuItem({ dish }: MenuItemProps) {
 
   return (
     <S.ItemContainer>
-      <S.ItemImage src={dish.photo} alt={dish.name} />
-
       <S.ItemInfo>
+      <S.ItemImage src={dish.photo} alt={dish.name} />
         <S.ItemHeader>
           <S.ItemName>{dish.name}</S.ItemName>
-          {dish.servingSize && (
+          {/* {dish.servingSize && (
             <S.ItemServing>{dish.servingSize}</S.ItemServing>
-          )}
+          )} */}
         </S.ItemHeader>
 
         <S.ItemDescription>{dish.description}</S.ItemDescription>
 
-        <S.ItemFooter>
+        {/* <S.ItemFooter>
           <S.ItemPrice>{formatCurrency(dish.price)}</S.ItemPrice>
           {dish.reviews && (
             <S.ItemReviews>
               ★ {dish.rating} ({dish.reviews} avaliações)
             </S.ItemReviews>
           )}
-        </S.ItemFooter>
+        </S.ItemFooter> */}
 
         <S.AddButton onClick={handleAddToCart}>
           Adicionar ao carrinho

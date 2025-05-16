@@ -54,8 +54,8 @@ import { restaurants } from '../../mocks/restaurant'
 import {
   Container,
   RestaurantInfo,
-  Rating
-} from './styles'
+  } from './styles'
+import { Footer } from '../../components/Footer'
 
 export function RestaurantProfile() {
   const { id } = useParams()
@@ -77,13 +77,13 @@ export function RestaurantProfile() {
       />
       {/* Informações do restaurante */}
       <RestaurantInfo>
-        <Rating>★ {restaurant.rating.toFixed(1)}</Rating>
-          <p>{restaurant.description}</p>
+        {/* <Rating>★ {restaurant.rating.toFixed(1)}</Rating>
+          <p>{restaurant.description}</p> */}
         </RestaurantInfo>
       {/* Lista de itens do menu */}
       <MenuList items={restaurant.dishes} />
     </Container>
-
+    <Footer />
     </>
   )
 }

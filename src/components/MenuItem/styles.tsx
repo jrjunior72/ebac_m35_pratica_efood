@@ -2,9 +2,9 @@ import styled from 'styled-components'
 import { theme } from '../../styles/theme'
 
 export const ItemContainer = styled.div`
-  background-color: ${theme.colors.white};
+  background-color: ${theme.colors.primary};
   border: 1px solid ${theme.colors.primary};
-  border-radius: 8px;
+  // border-radius: 8px;
   overflow: hidden;
   transition: all 0.3s ease;
   height: 100%;
@@ -19,22 +19,23 @@ export const ItemImage = styled.img`
   width: 100%;
   height: 175px;
   object-fit: cover;
+  // padding: 8px;
 `
 
 export const ItemInfo = styled.div`
-  padding: 16px;
+  padding: 8px;
 `
 
 export const ItemName = styled.h3`
-  font-size: 18px;
-  color: ${theme.colors.primary};
-  margin-bottom: 8px;
+  font-size: 16px;
+  color: ${theme.colors.secondary};
+  margin-top: 8px;
 `
 
 export const ItemDescription = styled.p`
   font-size: 14px;
-  color: ${theme.colors.text};
-  margin-bottom: 16px;
+  margin-bottom: 8px;
+  color: ${theme.colors.secondary};
   line-height: 1.5;
 `
 
@@ -42,7 +43,7 @@ export const ItemPrice = styled.span`
   display: block;
   font-size: 16px;
   font-weight: bold;
-  color: ${theme.colors.primary};
+  color: ${theme.colors.secondary};
   margin-bottom: 16px;
 `
 
@@ -74,16 +75,17 @@ export const ItemReviews = styled.span`
 `
 
 export const AddButton = styled.button`
-  background-color: ${theme.colors.primary};
-  color: ${theme.colors.white};
+  background-color: ${theme.colors.secondary};
+  color: ${theme.colors.primary};
   border: none;
-  padding: 8px 16px;
-  border-radius: 4px;
+  width: 100%;
+  padding: 8px;
+  font-size: 14px;
   font-weight: bold;
   cursor: pointer;
   transition: background-color 0.3s;
 
   &:hover {
-    background-color: ${theme.colors.primaryDark};
+    background-color: ${theme.colors.white};
   }
 `

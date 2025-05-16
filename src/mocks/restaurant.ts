@@ -33,6 +33,42 @@ export const restaurants: Restaurant[] = [
         price: 129.9,
         serving: '15 fatias',
         category: 'Sashimi'
+      },
+      {
+        id: 3,
+        name: 'Sushi Variado',
+        description: '10 peças de sushi variado com salmão, atum e camarão',
+        photo: menuImg1,
+        price: 89.9,
+        serving: '10 peças',
+        category: 'Sushi'
+      },
+      {
+        id: 4,
+        name: 'Sashimi Premium',
+        description: '15 fatias finas de peixe cru selecionado',
+        photo: menuImg1,
+        price: 129.9,
+        serving: '15 fatias',
+        category: 'Sashimi'
+      },
+      {
+        id: 5,
+        name: 'Sushi Variado',
+        description: '10 peças de sushi variado com salmão, atum e camarão',
+        photo: menuImg1,
+        price: 89.9,
+        serving: '10 peças',
+        category: 'Sushi'
+      },
+      {
+        id: 6,
+        name: 'Sashimi Premium',
+        description: '15 fatias finas de peixe cru selecionado',
+        photo: menuImg1,
+        price: 129.9,
+        serving: '15 fatias',
+        category: 'Sashimi'
       }
     ]
   },
@@ -66,7 +102,47 @@ export const restaurants: Restaurant[] = [
         price: 89.9,
         serving: '8 fatias',
         category: 'Pizza'
-      }
+      },
+      {
+        id: 3,
+        name: 'Pizza Marguerita',
+        description:
+          'A clássica Marguerita: molho de tomate suculento, mussarela derretida, manjericão fresco e um toque de azeite. Sabor e simplicidade!',
+        photo: menuImg1,
+        price: 89.9,
+        serving: '8 fatias',
+        category: 'Pizza'
+      },
+      {
+        id: 4,
+        name: 'Pizza Marguerita',
+        description:
+          'A clássica Marguerita: molho de tomate suculento, mussarela derretida, manjericão fresco e um toque de azeite. Sabor e simplicidade!',
+        photo: menuImg1,
+        price: 89.9,
+        serving: '8 fatias',
+        category: 'Pizza'
+      },
+      {
+        id: 5,
+        name: 'Pizza Marguerita',
+        description:
+          'A clássica Marguerita: molho de tomate suculento, mussarela derretida, manjericão fresco e um toque de azeite. Sabor e simplicidade!',
+        photo: menuImg1,
+        price: 89.9,
+        serving: '8 fatias',
+        category: 'Pizza'
+      },
+      {
+        id: 6,
+        name: 'Pizza Marguerita',
+        description:
+          'A clássica Marguerita: molho de tomate suculento, mussarela derretida, manjericão fresco e um toque de azeite. Sabor e simplicidade!',
+        photo: menuImg1,
+        price: 89.9,
+        serving: '8 fatias',
+        category: 'Pizza'
+      },
     ]
   },
   {

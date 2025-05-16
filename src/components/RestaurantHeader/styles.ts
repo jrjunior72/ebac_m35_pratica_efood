@@ -8,16 +8,17 @@ export const HeaderContainer = styled.header`
   display: flex;
   justify-content: center;
   height: 186px;
+
 `
 
 export const HeaderContent = styled.div`
   max-width: 2048px;
   width: 100%;
-  margin: -23px auto;
+  margin: -23px;
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding: 0 171px;
+  padding: 0 154px;
 `
 
 export const BackButton = styled(Link)`
