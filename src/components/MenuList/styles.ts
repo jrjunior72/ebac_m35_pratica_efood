@@ -2,8 +2,10 @@ import styled from 'styled-components'
 import { theme } from '../../styles/theme'
 
 export const MenuContainer = styled.div`
+  && { /* Dobrar a especificidade */
   margin-top: 56px;
   margin-bottom: 120px;
+  }
 `
 
 export const MenuTitle = styled.h2`

@@ -4,21 +4,25 @@ import * as S from './styles'
 // import { useNavigate } from 'react-router-dom'
 import logo from '../../assets/images/logo.svg'
 import vector from '../../assets/images/vector.svg'
+import { useCartContext } from '../../contexts/CartContext'
 
 export function RestaurantHeader() {
   // const navigate = useNavigate()
+  const { cartItems } = useCartContext()
+  // Calcula o total de itens no carrinho
+  const totalItems = cartItems.reduce((total, item) => total + item.quantity, 0)
 
   return (
     <S.HeaderContainer>
-      <S.HeaderContent style={{ backgroundImage: `url(${vector})` }}>
-        <S.BackButton to="/">
+      <S.HeaderContent $background={vector} className="container">
+        <S.BackButton to="/" aria-label="Voltar para restaurantes">
           Restaurantes
         </S.BackButton>
-        <S.LogoRestaurant to="/">
+        <S.LogoRestaurant to="/cart">
           <img src={logo} alt="EFOOD" />
         </S.LogoRestaurant>
         <S.CartButton to="/cart">
-          Carrinho (0)
+          Carrinho ({totalItems})
         </S.CartButton>
       </S.HeaderContent>
     </S.HeaderContainer>

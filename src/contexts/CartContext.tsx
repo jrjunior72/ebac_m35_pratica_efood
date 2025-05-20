@@ -10,8 +10,8 @@ type CartItem = MenuItem & {
 type CartContextType = {
   cartItems: CartItem[]
   addToCart: (item: MenuItem) => void
-  removeFromCart: (itemId: string) => void
-  updateQuantity: (itemId: string, newQuantity: number) => void
+  removeFromCart: (itemId: number) => void
+  updateQuantity: (itemId: number, newQuantity: number) => void
   cartTotal: number
   clearCart: () => void
 }
@@ -44,12 +44,12 @@ export function CartProvider({ children }: { children: ReactNode }) {
   }
 
   // Remove item do carrinho
-  const removeFromCart = (itemId: string) => {
+  const removeFromCart = (itemId: number) => {
     setCartItems((prevItems) => prevItems.filter((item) => item.id !== itemId))
   }
 
   // Atualiza quantidade específica de um item
-  const updateQuantity = (itemId: string, newQuantity: number) => {
+  const updateQuantity = (itemId: number, newQuantity: number) => {
     if (newQuantity <= 0) {
       removeFromCart(itemId)
       return

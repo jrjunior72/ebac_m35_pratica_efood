@@ -25,7 +25,7 @@ export function Cart() {
           <S.CartItems>
             {cartItems.map((item) => (
               <S.CartItem key={item.id}>
-                <S.ItemImage src={item.image} alt={item.name} />
+                <S.ItemImage src={item.photo} alt={item.name} />
                 <S.ItemDetails>
                   <S.ItemName>{item.name}</S.ItemName>
                   <S.ItemPrice>R$ {item.price.toFixed(2)}</S.ItemPrice>

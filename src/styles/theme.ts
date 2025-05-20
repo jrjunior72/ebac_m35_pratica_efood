@@ -8,7 +8,11 @@ export const theme = {
     text: '#4B4B4B',
     lightGray: '#F5F5F5',
     gray: '#E0E0E0',
-    yellow: '#FFB930'
+    yellow: '#FFB930',
+    textLight: '#666666',
+    accent: '#FF6B00',
+    accentDark: '#E05D00',
+    modalOverlay: 'rgba(0, 0, 0, 0.7)',
   },
   fonts: {
     primary: 'Roboto, sans-serif'
@@ -22,6 +26,9 @@ export const theme = {
     medium: '16px',
     large: '24px',
     extra: '40px'
+  },
+  shadows: {
+    large: '0 5px 15px rgba(0, 0, 0, 0.1)',
   }
 } as const // <-- Adicione 'as const' para tipos literais
 

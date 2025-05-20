@@ -60,14 +60,16 @@ export const Overlay = styled.div`
 `
 
 export const BannerContent = styled.div`
-  position: relative;
-  z-index: 1;
-  height: 100%;
-  display: flex;
-  flex-direction: column;
-  justify-content: space-between;
-  padding-bottom: 32px;
-  color: ${theme.colors.white};
+  && {
+    position: relative;
+    z-index: 1;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    padding-bottom: 32px;
+    color: ${theme.colors.white};
+  }
 `
 
 export const RestaurantType = styled.span`

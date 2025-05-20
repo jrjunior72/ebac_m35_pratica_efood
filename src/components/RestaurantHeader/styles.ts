@@ -3,6 +3,10 @@ import styled from 'styled-components'
 import { theme } from '../../styles/theme'
 import { Link } from 'react-router-dom'
 
+type HeaderContentProps = {
+  $background: string
+}
+
 export const HeaderContainer = styled.header`
   padding: 0;
   display: flex;
@@ -11,11 +15,14 @@ export const HeaderContainer = styled.header`
 
 `
 
-export const HeaderContent = styled.div`
+export const HeaderContent = styled.div<HeaderContentProps>`
   max-width: 2048px;
   width: 100%;
   margin: -23px;
   display: flex;
+  background-image: url(${props => props.$background});
+  background-repeat: no-repeat;
+  background-position: center;
   justify-content: space-between;
   align-items: center;
   padding: 0 154px;
@@ -57,3 +64,4 @@ export const CartButton = styled(Link)`
     transform: translateY(-2px);
   }
 `
+
