@@ -18,7 +18,7 @@ export const ModalContent = styled.div`
   background: ${theme.colors.primary};
   padding: 24px;
   width: 80%;
-  max-width: 800px;
+  max-width: 1024px;
   position: relative;
   color: ${theme.colors.text};
   box-shadow: ${theme.shadows.large}; // sombra do tema
@@ -26,7 +26,7 @@ export const ModalContent = styled.div`
 
 export const ModalBody = styled.div`
   display: flex;
-  gap: 32px;
+  gap: 24px;
   align-items: flex-start;
   font-size: 14px;
 
@@ -57,19 +57,22 @@ export const DishImage = styled.img`
 `
 
 export const DishInfo = styled.div`
-  width: 50%;
+  width: 70%;
   display: flex;
   flex-direction: column;
   gap: 16px;
   color: ${({ theme }) => theme.colors.secondary};
+  font-weight: normal;
 
   h2 {
-    font-size: 24px;
+    font-size: 18px;
     margin: 0;
+    font-weight: bold;
   }
 
   p {
     line-height: 1.5;
+    font-weight: normal;
     margin: 0;
   }
 
@@ -86,18 +89,19 @@ export const DetailRow = styled.div`
 `
 
 export const Price = styled.span`
-  font-weight: normal;
+  font-weight: bold;
 `
 
 export const AddButton = styled.button`
   background: ${({ theme }) => theme.colors.secondary};
   color: white;
   border: none;
-  padding: 12px 24px;
-  border-radius: 4px;
+  padding: 4px 7px;
   cursor: pointer;
   transition: background-color 0.3s;
-  margin-top: 16px;
+  margin-right: auto;
+  align-content: center;
+  font-weight: bold;
   color: ${({ theme }) => theme.colors.primary};
 
   &:hover {
