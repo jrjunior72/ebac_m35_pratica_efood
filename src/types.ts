@@ -24,3 +24,11 @@ export interface Restaurant {
   deliveryTime?: string
   dishes: MenuItem[]
 }
+
+export type CartItemType = {
+  id: number
+  name: string
+  photo: string
+  price: number
+  quantity: number
+}

@@ -50,7 +50,7 @@ export const LogoRestaurant = styled(Link)`
   }
 `
 
-export const CartButton = styled(Link)`
+export const CartButton = styled.button`
   background-color: ${theme.colors.secondary};
   color: ${theme.colors.primary};
   padding: ${theme.spacing.small} ${theme.spacing.medium};

@@ -56,6 +56,7 @@ import {
   RestaurantInfo,
   } from './styles'
 import { Footer } from '../../components/Footer'
+import { CartModal } from '../../components/CartModal'
 
 export function RestaurantProfile() {
   const { id } = useParams()
@@ -84,6 +85,7 @@ export function RestaurantProfile() {
       <MenuList items={restaurant.dishes} />
     </Container>
     <Footer />
+    <CartModal />
     </>
   )
 }

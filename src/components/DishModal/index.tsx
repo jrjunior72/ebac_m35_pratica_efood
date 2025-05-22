@@ -24,7 +24,6 @@ export const DishModal = ({ dish, onClose, onAddToCart }: Props) => {
             <p>{dish.detailDescription}</p>
             <S.DetailRow>
               <span>Serve: {dish.serving}</span>
-
             </S.DetailRow>
 
             <S.AddButton onClick={onAddToCart}>

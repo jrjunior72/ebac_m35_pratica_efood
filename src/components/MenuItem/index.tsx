@@ -14,14 +14,13 @@ export function MenuItem({ dish }: MenuItemProps) {
   const { addToCart, cartItems } = useCartContext()
   const [isAdding, setIsAdding] = useState(false)
   const [showModal, setShowModal] = useState(false) // Estado para controlar o modal
-
   const itemInCart = cartItems.find(item => item.id === dish.id)
   const quantity = itemInCart?.quantity || 0
 
-  const handleAddToCart = () => {
+  const handleShowModal = () => {
     setIsAdding(true)
-    addToCart(dish)
-    setTimeout(() => setIsAdding(false), 1000)
+    // addToCart(dish)
+    // setTimeout(() => setIsAdding(false), 1000)
     setShowModal(true) // Mostra o modal ao adicionar
   }
 
@@ -51,10 +50,10 @@ export function MenuItem({ dish }: MenuItemProps) {
               </S.ItemReviews>
             )} */}
             <S.AddButton
-              onClick={handleAddToCart}
+              onClick={handleShowModal}
               className={`${quantity > 0 ? 'in-cart' : ''} ${isAdding ? 'adding' : ''}`}
             >
-              {quantity > 0 ? `${quantity} no carrinho` : 'Adicionar ao carrinho'}
+              {quantity > 0 ? `${quantity} no carrinho` : 'Ver detalhes'}
             </S.AddButton>
           </S.ItemFooter>
 

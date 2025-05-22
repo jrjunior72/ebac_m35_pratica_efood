@@ -8,9 +8,9 @@ import { useCartContext } from '../../contexts/CartContext'
 
 export function RestaurantHeader() {
   // const navigate = useNavigate()
-  const { cartItems } = useCartContext()
+  const { cartQuantity, openCart } = useCartContext()
   // Calcula o total de itens no carrinho
-  const totalItems = cartItems.reduce((total, item) => total + item.quantity, 0)
+  // const totalItems = cartItems.reduce((total, item) => total + item.quantity, 0)
 
   return (
     <S.HeaderContainer>
@@ -21,8 +21,11 @@ export function RestaurantHeader() {
         <S.LogoRestaurant to="/cart">
           <img src={logo} alt="EFOOD" />
         </S.LogoRestaurant>
-        <S.CartButton to="/cart">
+        {/* <S.CartButton to="/cart">
           Carrinho ({totalItems})
+        </S.CartButton> */}
+        <S.CartButton onClick={openCart}>
+          Carrinho ({cartQuantity})
         </S.CartButton>
       </S.HeaderContent>
     </S.HeaderContainer>
