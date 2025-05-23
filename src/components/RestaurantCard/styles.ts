@@ -4,7 +4,7 @@ import { theme } from '../../styles/theme'
 export const CardContainer = styled.div`
   background-color: ${theme.colors.white};
   border: 1px solid ${theme.colors.primary};
-
+  position: relative;
   overflow: hidden;
   transition: all 0.3s ease;
   height: 100%;
@@ -14,6 +14,33 @@ export const CardContainer = styled.div`
     transform: translateY(-5px);
     box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
   }
+`
+
+export const TagsContainer = styled.div`
+  position: absolute;
+  top: 16px;
+  right: 16px;
+  display: flex;
+  justify-content: flex-end;
+  gap: 8px;
+  z-index: 2;
+`
+
+export const HighlightTag = styled.span`
+  background: ${({ theme }) => theme.colors.primary};
+  color: white;
+  padding: 6px 12px;
+  font-size: 12px;
+  font-weight: bold;
+  white-space: nowrap;
+`
+
+export const CategoryTag = styled.span`
+  background: ${({ theme }) => theme.colors.primary};
+  color: white;
+  padding: 6px 12px;
+  font-size: 12px;
+  font-weight: bold;
 `
 
 export const CardImage = styled.img`

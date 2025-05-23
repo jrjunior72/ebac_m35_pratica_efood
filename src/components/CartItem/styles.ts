@@ -1,8 +1,9 @@
+//src/components/CartItem/styles.ts Estilos do componente item do carrinho
+
 import styled from 'styled-components'
 
 export const CartItemContainer = styled.div`
   display: flex;
-  // align-items: center;
   gap: 8px;
   padding: 8px;
   border-bottom: 1px solid ${({ theme }) => theme.colors.secondary};
@@ -11,18 +12,41 @@ export const CartItemContainer = styled.div`
 `
 
 export const ItemImage = styled.img`
-  width: 80px;
-  height: 80px;
-  object-fit: cover;
-  // border-radius: 8px;
-
+width: 80px;
+height: 80px;
+object-fit: cover;
 `
 
 export const ItemDetails = styled.div`
   flex: 1;
   display: flex;
   flex-direction: column;
-  gap: 4px;
+  gap: 8px;
+`
+
+export const ItemHeader = styled.div`
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+
+`
+
+export const DeleteButton = styled.button`
+  background: none;
+  border: none;
+  color: ${({ theme }) => theme.colors.primary};
+  cursor: pointer;
+  margin-left: auto;
+  align-self: flex-end;
+  transition: color 0.2s;
+
+  &:hover {
+    color: ${({ theme }) => theme.colors.textLight};
+  }
+
+  svg {
+    display: block;
+  }
 `
 
 export const ItemName = styled.h3`
@@ -34,7 +58,7 @@ export const ItemName = styled.h3`
 
 export const ItemPrice = styled.span`
   font-size: 14px;
-  font-weight: 600;
+  font-weight: normal;
 `
 
 export const QuantityControls = styled.div`

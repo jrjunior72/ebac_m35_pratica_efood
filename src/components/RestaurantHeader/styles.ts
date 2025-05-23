@@ -18,7 +18,7 @@ export const HeaderContainer = styled.header`
 export const HeaderContent = styled.div<HeaderContentProps>`
   max-width: 2048px;
   width: 100%;
-  margin: -23px;
+  margin-top: -44px;
   display: flex;
   background-image: url(${props => props.$background});
   background-repeat: no-repeat;
@@ -47,6 +47,7 @@ export const LogoRestaurant = styled(Link)`
   img {
     height: auto;
     width: 125px;
+    margin-bottom: auto;
   }
 `
 
@@ -54,9 +55,10 @@ export const CartButton = styled.button`
   background-color: ${theme.colors.secondary};
   color: ${theme.colors.primary};
   padding: ${theme.spacing.small} ${theme.spacing.medium};
-  border-radius: 8px;
   font-weight: bold;
   font-size: 18px;
+  border: none;
+  border-radius: 8px;
   transition: all 0.3s ease;
 
   &:hover {

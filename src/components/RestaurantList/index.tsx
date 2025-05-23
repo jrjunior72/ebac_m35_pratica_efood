@@ -11,8 +11,12 @@ export function RestaurantList({ restaurants }: RestaurantListProps) {
     <>
       {/* <S.ListTitle>Restaurantes</S.ListTitle> */}
       <S.ListContainer>
-        {restaurants.map((restaurant) => (
-          <RestaurantCard key={restaurant.id} restaurant={restaurant} />
+        {restaurants.map((restaurant, index) => (
+          <RestaurantCard
+            key={restaurant.id}
+            restaurant={restaurant}
+            highlighted={restaurant.highlighted && index===0} // TRUE apenas para o primeiro card
+          />
         ))}
       </S.ListContainer>
     </>

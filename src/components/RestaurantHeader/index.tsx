@@ -18,7 +18,7 @@ export function RestaurantHeader() {
         <S.BackButton to="/" aria-label="Voltar para restaurantes">
           Restaurantes
         </S.BackButton>
-        <S.LogoRestaurant to="/cart">
+        <S.LogoRestaurant to="/">
           <img src={logo} alt="EFOOD" />
         </S.LogoRestaurant>
         {/* <S.CartButton to="/cart">

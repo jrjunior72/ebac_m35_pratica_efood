@@ -107,7 +107,7 @@ export const RemoveButton = styled.button`
   right: 0;
   background: none;
   border: none;
-  color: ${({ theme }) => theme.colors.textLight};
+  color: ${({ theme }) => theme.colors.secondary};
   cursor: pointer;
 `
 
@@ -118,7 +118,7 @@ export const EmptyCart = styled.div`
   justify-content: center;
   gap: 8px;
   padding: 40px 0;
-  color: ${({ theme }) => theme.colors.textLight};
+  color: ${({ theme }) => theme.colors.secondary};
 `
 
 export const EmptyCartMessage = styled.span`

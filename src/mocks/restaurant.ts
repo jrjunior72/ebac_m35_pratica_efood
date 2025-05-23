@@ -161,7 +161,7 @@ export const restaurants: Restaurant[] = [
     id: 3,
     name: 'La Dolce Vita Trattoria',
     cover: cover1,
-    highlighted: true,
+    highlighted: false,
     category: 'Italiana',
     rating: 4.5,
     description:
@@ -198,7 +198,7 @@ export const restaurants: Restaurant[] = [
     id: 4,
     name: 'La Dolce Vita Trattoria',
     cover: cover1,
-    highlighted: true,
+    highlighted: false,
     category: 'Italiana',
     rating: 4.5,
     description:
@@ -272,7 +272,7 @@ export const restaurants: Restaurant[] = [
     id: 6,
     name: 'La Dolce Vita Trattoria',
     cover: cover1,
-    highlighted: true,
+    highlighted: false,
     category: 'Italiana',
     rating: 4.5,
     description:
