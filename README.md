@@ -1,40 +1,41 @@
-# eFood - Plataforma de Delivery (Desenvolvimento em Andamento)
+# 🍽️ eFood - Delivery Gastronômico
 
 ![Status](https://img.shields.io/badge/Status-Em%20Desenvolvimento-orange)
 ![React](https://img.shields.io/badge/React-18.2-blue)
 ![TypeScript](https://img.shields.io/badge/TypeScript-5.0-blue)
 ![Styled Components](https://img.shields.io/badge/Styled%20Components-6.0-green)
 
-## 📌 Progresso Atual
+## 📌 Visão Geral
+Plataforma de delivery desenvolvida em React com TypeScript, oferecendo:
 
-### ✅ Etapas Concluídas
+- Catálogo de restaurantes com destaques
+- Carrinho de compras interativo
+- Design responsivo e acessível
 
-1. **Configuração Inicial do Projeto**
+## 🛠 Tecnologias
+| Ferramenta | Descrição |
+|------------|-----------|
+| React | Biblioteca front-end |
+| TypeScript | Tipagem estática |
+| Styled Components | Estilização |
+| Context API | Estado global |
 
-   - [x] Setup do projeto React + TypeScript
-   - [x] Instalação e configuração do Styled Components
-   - [x] Configuração básica do React Router
+## ✨ Funcionalidades
+- **Destaques:**
+  ✅ Etiquetas visíveis
+  ✅ Filtro por categoria
 
-2. **Página Home**
+- **Carrinho:**
+  🛒 Adição/remoção de itens
+  🔢 Ajuste de quantidades
+  💰 Cálculo automático
 
-   - [x] Criação do componente `RestaurantCard`
-   - [x] Implementação do `RestaurantList`
-   - [x] Integração com dados mockados
-   - [x] Estilização básica conforme Figma
-
-3. **Navegação**
-   - [x] Configuração das rotas básicas
-   - [x] Link "Saiba mais" funcionando
-
-### 🚧 Em Desenvolvimento Atual
-
-**Página Restaurant** (70% concluída)
-
-- [x] Estrutura básica da página
-- [x] Componente `MenuSection` criado
-- [ ] Finalização da estilização do cabeçalho
-- [ ] Ajustes de layout nos cards de menu
-- [ ] Responsividade completa
+## 🚀 Execução
+```bash
+git clone https://github.com/seu-user/efood.git
+npm install
+npm run dev //ou
+npx vite --force --clearScreen=false
 
 ## 🔍 Layout de Referência
 
@@ -63,46 +64,64 @@ npm run dev
 📂 Estrutura do Projeto (Atual)
 
 ```bash
-src/
-├── components/
-│   ├── RestaurantCard/   # Card de restaurante (completo)
-│   ├── RestaurantList/   # Listagem (completa)
-│   ├── MenuSection/      # Em desenvolvimento
-│   ├── MenuList/         # Parcialmente completo
-│   └── MenuItem/         # Em ajustes
-├── pages/
-│   ├── Home/             # Página inicial (completa)
-│   └── Restaurant/       # Página em desenvolvimento
-├── mocks/
-│   └── restaurant.ts     # Dados mockados
-├── types.ts              # Tipagens
-└── App.tsx               # Rotas
+efood/
+├── public/                   # Assets públicos
+│   ├── images/               # Imagens globais
+│   └── index.html            # Template HTML
+│
+├── src/
+│   ├── assets/               # Assets da aplicação
+│   │   ├── icons/            # Ícones SVG
+│   │   └── images/           # Imagens específicas
+│   │
+│   ├── components/           # Componentes reutilizáveis
+│   │   ├── Banner/
+│   │   │   ├── index.tsx
+│   │   │   └── styles.ts
+│   │   │
+│   │   ├── Cart/
+│   │   │   ├── CartItem/
+│   │   │   │   ├── index.tsx
+│   │   │   │   └── styles.ts
+│   │   │   ├── CartModal/
+│   │   │   │   ├── index.tsx
+│   │   │   │   └── styles.ts
+│   │   │   └── index.ts
+│   │   │
+│   │   ├── RestaurantCard/
+│   │   │   ├── index.tsx
+│   │   │   └── styles.ts
+│   │   │
+│   │   └── ... (outros componentes)
+│   │
+│   ├── contexts/             # Contextos globais
+│   │   └── CartContext.tsx
+│   │
+│   ├── pages/                # Páginas da aplicação
+│   │   ├── Home/
+│   │   │   ├── index.tsx
+│   │   │   └── styles.ts
+│   │   ├── Restaurant/
+│   │   │   ├── index.tsx
+│   │   │   └── styles.ts
+│   │   └── ... (outras páginas)
+│   │
+│   ├── styles/               # Estilos globais
+│   │   ├── themes.ts         # Tema principal
+│   │   └── global.ts         # Estilos globais
+│   │
+│   ├── types/                # Tipagens TypeScript
+│   │   └── index.ts
+│   │
+│   ├── utils/                # Utilitários
+│   │   └── formatCurrency.ts
+│   │
+│   ├── App.tsx               # Componente raiz
+│   ├── main.tsx              # Ponto de entrada
+│   └── routes.tsx            # Configuração de rotas
+│
+├── .gitignore
+├── package.json
+├── tsconfig.json
+└── README.md                 # Este arquivo
 ```
-
-⏭️ Próximos Passos
-
-1. Finalizar a página Restaurant:
-
-   - Completar estilização
-
-   - Ajustar componentes de menu
-
-   - Garantir responsividade
-
-2. Implementar novas funcionalidades:
-
-   - Sistema de carrinho
-
-   - Filtros por categoria
-
-   - Página de checkout
-
-📌 Pendências Atuais
-
-- Finalizar componente MenuItem
-
-- Ajustar espaçamentos no MenuSection
-
-- Corrigir alinhamento dos cards
-
-- Testes em diferentes breakpoints
