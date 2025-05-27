@@ -13,8 +13,8 @@ export function RestaurantHeader() {
   // const totalItems = cartItems.reduce((total, item) => total + item.quantity, 0)
 
   return (
-    <S.HeaderContainer>
-      <S.HeaderContent $background={vector} className="container">
+    <S.HeaderContainer $background={vector} >
+      <S.HeaderContent className="container">
         <S.BackButton to="/" aria-label="Voltar para restaurantes">
           Restaurantes
         </S.BackButton>

@@ -7,22 +7,22 @@ type HeaderContentProps = {
   $background: string
 }
 
-export const HeaderContainer = styled.header`
+export const HeaderContainer = styled.header<HeaderContentProps>`
   padding: 0;
   display: flex;
   justify-content: center;
   height: 186px;
-
+  background-image: url(${props => props.$background});
+  // background-repeat: no-repeat;
+  background-position: center;
 `
 
-export const HeaderContent = styled.div<HeaderContentProps>`
-  max-width: 2048px;
+export const HeaderContent = styled.div`
+  // max-width: 2048px;
   width: 100%;
   margin-top: -44px;
   display: flex;
-  background-image: url(${props => props.$background});
-  background-repeat: no-repeat;
-  background-position: center;
+
   justify-content: space-between;
   align-items: center;
   padding: 0 154px;

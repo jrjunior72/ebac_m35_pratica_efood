@@ -9,7 +9,7 @@ export const HeaderContainer = styled.header`
 `
 
 export const HeaderContent = styled.div`
-  max-width: 2048px;
+  // max-width: 2048px;
   height: 348px;
   width: 100%;
   margin: -24px auto;
