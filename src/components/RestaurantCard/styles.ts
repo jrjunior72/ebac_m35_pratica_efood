@@ -18,7 +18,7 @@ export const CardContainer = styled.div`
 `
 
 export const CardImage = styled.img`
-width: 100%;
+  width: 100%;
   height: 217px;
   object-fit: cover;
   object-position: center;
@@ -26,7 +26,7 @@ width: 100%;
 `
 
 export const CardContent = styled.div`
-padding: 16px;
+padding: 8px;
 flex: 1;
 display: flex;
 flex-direction: column;

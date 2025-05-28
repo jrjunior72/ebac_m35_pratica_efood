@@ -25,7 +25,7 @@ export function RestaurantHeader() {
           Carrinho ({totalItems})
         </S.CartButton> */}
         <S.CartButton onClick={openCart}>
-          Carrinho ({cartQuantity})
+          {cartQuantity} produto(s) no carrinho
         </S.CartButton>
       </S.HeaderContent>
     </S.HeaderContainer>

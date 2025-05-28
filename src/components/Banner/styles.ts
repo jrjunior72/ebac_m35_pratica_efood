@@ -22,6 +22,7 @@ export const Overlay = styled.div`
 
 export const BannerContent = styled.div`
   && {
+    margin: auto;
     position: relative;
     z-index: 1;
     height: 100%;

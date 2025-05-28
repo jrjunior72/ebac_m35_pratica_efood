@@ -18,9 +18,8 @@ export const HeaderContainer = styled.header<HeaderContentProps>`
 `
 
 export const HeaderContent = styled.div`
-  // max-width: 2048px;
   width: 100%;
-  margin-top: -44px;
+  margin-top: -23px;
   display: flex;
 
   justify-content: space-between;
@@ -29,7 +28,7 @@ export const HeaderContent = styled.div`
 `
 
 export const BackButton = styled(Link)`
-  background-color: ${theme.colors.secondary};
+  // background-color: ${theme.colors.secondary};
   color: ${theme.colors.primary};
   padding: ${theme.spacing.small} ${theme.spacing.medium};
   border-radius: 8px;
@@ -52,13 +51,13 @@ export const LogoRestaurant = styled(Link)`
 `
 
 export const CartButton = styled.button`
-  background-color: ${theme.colors.secondary};
+  background-color: transparent;
   color: ${theme.colors.primary};
   padding: ${theme.spacing.small} ${theme.spacing.medium};
+  border-radius: 8px;
   font-weight: bold;
   font-size: 18px;
   border: none;
-  border-radius: 8px;
   transition: all 0.3s ease;
 
   &:hover {

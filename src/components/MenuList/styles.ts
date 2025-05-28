@@ -3,8 +3,9 @@ import { theme } from '../../styles/theme'
 
 export const MenuContainer = styled.div`
   && { /* Dobrar a especificidade */
-  margin-top: 56px;
-  margin-bottom: 120px;
+    margin: auto;
+    padding-top: 56px;
+    padding-bottom: 120px;
   }
 `
 

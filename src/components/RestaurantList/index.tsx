@@ -10,7 +10,7 @@ export function RestaurantList({ restaurants }: RestaurantListProps) {
   return (
     <>
       {/* <S.ListTitle>Restaurantes</S.ListTitle> */}
-      <S.ListContainer>
+      <S.ListContainer className='container'>
         {restaurants.map((restaurant, index) => (
           <RestaurantCard
             key={restaurant.id}
