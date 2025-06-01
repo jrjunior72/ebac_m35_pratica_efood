@@ -1,70 +1,47 @@
-// // src/pages/Restaurant/index.tsx
-// import { useParams } from 'react-router-dom'
-// import { MenuList } from '../../components/MenuList'
-// import { restaurants } from '../../mocks/restaurant'
-// import {
-//   Container,
-//   Banner,
-//   RestaurantHeader,
-//   RestaurantInfo,
-//   Rating
-// } from './styles'
-
-// export function RestaurantProfile() {
-//   const { id } = useParams()
-//   const restaurant = restaurants.find((r) => r.id === Number(id))
-
-//   // Adicione estes logs para depuração
-//   console.log('ID da URL:', id)
-//   console.log('Todos restaurantes:', restaurants)
-
-//   // Log adicional
-//   console.log('Restaurante encontrado:', restaurant)
-
-//   if (!restaurant) {
-//     return <div>Restaurante não encontrado</div>
-//   }
-
-//   return (
-//     <Container>
-//       {/* Banner com imagem de capa */}
-//       <Banner style={{ backgroundImage: `url(${restaurant.cover})` }} />
-
-//       {/* Informações do restaurante */}
-//       <RestaurantHeader className="container">
-//         <RestaurantInfo>
-//           <h2>{restaurant.name}</h2>
-//           <Rating>Avaliação: {restaurant.rating}</Rating>
-//           <p>{restaurant.description}</p>
-//         </RestaurantInfo>
-//       </RestaurantHeader>
-
-//       {/* Lista de itens do cardápio - REAPROVEITANDO SEU COMPONENTE */}
-//       <MenuList items={restaurant.dishes} />
-//     </Container>
-//   )
-// }
-
 // pages/Restaurant/index.tsx
 import { useParams } from 'react-router-dom'
+import { useState, useEffect } from 'react'
+
+import { getRestaurantDetails } from '../../services/api'
+
 import { Banner } from '../../components/Banner'
 import { MenuList } from '../../components/MenuList'
 import { RestaurantHeader } from '../../components/RestaurantHeader'
-import { restaurants } from '../../mocks/restaurant'
-import {
-  Container,
-  RestaurantInfo,
-  } from './styles'
 import { Footer } from '../../components/Footer'
 import { CartModal } from '../../components/CartModal'
 
+import { mapApiRestaurantToLocal } from '../../utils/mappers'
+import { Container, RestaurantInfo } from './styles'
+import { Restaurant } from '../../types'
+
 export function RestaurantProfile() {
   const { id } = useParams()
-  const restaurant = restaurants.find(r => r.id === (Number(id)))
+  const [restaurant, setRestaurant] = useState<Restaurant | null>(null)
+  const [loading, setLoading] = useState(true)
+  const [error, setError] = useState('')
 
-  if (!restaurant) {
-    return <div>Restaurante não encontrado</div>
+useEffect(() => {
+  const loadData = async () => {
+    try {
+      if (!id) throw new Error('ID não fornecido')
+
+      setLoading(true)
+      const apiData = await getRestaurantDetails(id)
+      const restaurantData = mapApiRestaurantToLocal(apiData)
+      setRestaurant(restaurantData)
+    } catch (err) {
+      setError(err instanceof Error ? err.message : 'Erro ao carregar dados')
+    } finally {
+      setLoading(false)
+    }
   }
+
+  loadData()
+}, [id])
+
+  if (loading) return <div>Carregando...</div>
+  if (error) return <div>{error}</div>
+  if (!restaurant) return <div>Restaurante não encontrado</div>
 
   return (
     <>

@@ -29,3 +29,23 @@ export const MenuItems = styled.div`
     grid-template-columns: 1fr;
   }
 `
+
+export const Loading = styled.div`
+  text-align: center;
+  padding: 2rem;
+  font-size: 1.2rem;
+  color: ${({ theme }) => theme.colors.secondary};
+`
+
+export const Error = styled.div`
+  text-align: center;
+  padding: 2rem;
+  color: ${({ theme }) => theme.colors.secondary};
+  font-size: 1.2rem;
+`
+
+export const EmptyMessage = styled.p`
+  text-align: center;
+  color: ${({ theme }) => theme.colors.secondary};
+  padding: 2rem;
+`

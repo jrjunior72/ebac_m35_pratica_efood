@@ -1,12 +1,15 @@
+// src/components/RestaurantList/index.tsx
+
 import { Restaurant } from '../../types'
 import { RestaurantCard } from '../RestaurantCard'
 import * as S from './styles'
 
-type RestaurantListProps = {
+type Props = {
   restaurants: Restaurant[]
 }
 
-export function RestaurantList({ restaurants }: RestaurantListProps) {
+export function RestaurantList({ restaurants }: Props) {
+
   return (
     <>
       {/* <S.ListTitle>Restaurantes</S.ListTitle> */}

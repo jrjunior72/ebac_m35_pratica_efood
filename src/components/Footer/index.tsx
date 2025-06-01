@@ -1,3 +1,5 @@
+//src/components/Footer/index.tsx
+
 import * as S from './styles'
 import logo from '../../assets/images/logo.svg'
 import instagram from '../../assets/images/instagram.png'

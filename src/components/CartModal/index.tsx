@@ -1,3 +1,5 @@
+//src/components/CartModal/index.tsx
+
 import * as S from './styles'
 import { useCartContext } from '../../contexts/CartContext'
 import { formatCurrency } from '../../utils/formatCurrency'

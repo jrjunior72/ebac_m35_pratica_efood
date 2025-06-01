@@ -1,3 +1,5 @@
+//src/components/Banner/index.tsx
+
 import * as S from './styles'
 
 type BannerProps = {

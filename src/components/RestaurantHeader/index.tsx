@@ -1,4 +1,4 @@
-// components/RestaurantHeader/index.tsx
+//src/components/RestaurantHeader/index.tsx
 import * as S from './styles'
 // import { ChevronLeft } from 'lucide-react'
 // import { useNavigate } from 'react-router-dom'

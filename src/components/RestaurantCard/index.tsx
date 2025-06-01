@@ -8,8 +8,8 @@ type RestaurantCardProps = {
   highlighted?: boolean // Controla a visibilidade das etiquetas
 }
 
-export const RestaurantCard = ({ restaurant, highlighted }: RestaurantCardProps) => {
-  console.log(`Card ${restaurant.name} - Destaque: ${highlighted}`)
+export const RestaurantCard = ({ restaurant, highlighted = false }: RestaurantCardProps) => {
+
   return (
     <S.CardContainer>
         {/* Container das etiquetas (só aparece se highlight=true) */}
