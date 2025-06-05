@@ -1,8 +1,8 @@
 // pages/Restaurant/index.tsx
 import { useParams } from 'react-router-dom'
-import { useState, useEffect } from 'react'
+// import { useState, useEffect } from 'react'
 
-import { getRestaurantDetails } from '../../services/api'
+// import { getRestaurantDetails } from '../../services/api'
 
 import { Banner } from '../../components/Banner'
 import { MenuList } from '../../components/MenuList'
@@ -10,37 +10,45 @@ import { RestaurantHeader } from '../../components/RestaurantHeader'
 import { Footer } from '../../components/Footer'
 import { CartModal } from '../../components/CartModal'
 
-import { mapApiRestaurantToLocal } from '../../utils/mappers'
+// import { mapApiRestaurantToLocal } from '../../utils/mappers'
 import { Container, RestaurantInfo } from './styles'
-import { Restaurant } from '../../types'
+import { useGetRestaurantByIdQuery } from '../../services/api'
+// import { Restaurant } from '../../types'
 
 export function RestaurantProfile() {
+//   const { id } = useParams()
+//   const [restaurant, setRestaurant] = useState<Restaurant | null>(null)
+//   const [loading, setLoading] = useState(true)
+//   const [error, setError] = useState('')
+
+// useEffect(() => {
+//   const loadData = async () => {
+//     try {
+//       if (!id) throw new Error('ID não fornecido')
+
+//       setLoading(true)
+//       const apiData = await getRestaurantDetails(id)
+//       const restaurantData = mapApiRestaurantToLocal(apiData)
+//       setRestaurant(restaurantData)
+//     } catch (err) {
+//       setError(err instanceof Error ? err.message : 'Erro ao carregar dados')
+//     } finally {
+//       setLoading(false)
+//     }
+//   }
+
+//   loadData()
+// }, [id])
+
+//   if (loading) return <div>Carregando...</div>
+//   if (error) return <div>{error}</div>
+//   if (!restaurant) return <div>Restaurante não encontrado</div>
+
   const { id } = useParams()
-  const [restaurant, setRestaurant] = useState<Restaurant | null>(null)
-  const [loading, setLoading] = useState(true)
-  const [error, setError] = useState('')
+  const { data: restaurant, isLoading, error } = useGetRestaurantByIdQuery(id!)
 
-useEffect(() => {
-  const loadData = async () => {
-    try {
-      if (!id) throw new Error('ID não fornecido')
-
-      setLoading(true)
-      const apiData = await getRestaurantDetails(id)
-      const restaurantData = mapApiRestaurantToLocal(apiData)
-      setRestaurant(restaurantData)
-    } catch (err) {
-      setError(err instanceof Error ? err.message : 'Erro ao carregar dados')
-    } finally {
-      setLoading(false)
-    }
-  }
-
-  loadData()
-}, [id])
-
-  if (loading) return <div>Carregando...</div>
-  if (error) return <div>{error}</div>
+  if (isLoading) return <div>Carregando...</div>
+  if (error) return <div>Erro ao carregar restaurante</div>
   if (!restaurant) return <div>Restaurante não encontrado</div>
 
   return (
