@@ -1,26 +1,28 @@
 //src/components/CartModal/index.tsx
 
 import * as S from './styles'
-import { useCartContext } from '../../contexts/CartContext'
 import { formatCurrency } from '../../utils/formatCurrency'
 import { CartItem } from '../CartItem'
+import { useCart } from '../../hooks/useCart'
 
 
 export const CartModal = () => {
-  const { cartItems, cartTotal, isCartOpen, closeCart } = useCartContext()
+    const {
+    items,
+    isOpen,
+    toggleCart,
+    totalPrice
+  } = useCart()
+
+  if (!isOpen) return null
 
   return (
-    <S.ModalOverlay $isOpen={isCartOpen} onClick={closeCart}>
+    <S.ModalOverlay onClick={toggleCart}>
       <S.ModalContent onClick={(e) => e.stopPropagation()}>
-        {/* <S.CloseButton onClick={closeCart}>×</S.CloseButton> */}
-
-        {/* <S.ModalHeader>
-          <h2>Carrinho de compras</h2>
-        </S.ModalHeader> */}
 
         <S.CartItemsWrapper>
-          {cartItems.length > 0 ? (
-            cartItems.map(item => (
+          {items.length > 0 ? (
+            items.map(item => (
               <CartItem key={item.id} item={item} />
             ))
           ) : (
@@ -33,11 +35,11 @@ export const CartModal = () => {
           )}
         </S.CartItemsWrapper>
 
-        {cartItems.length > 0 && (
+        {items.length > 0 && (
           <S.CartSummary>
             <S.TotalWrapper>
               <span>Valor total</span>
-              <span>{formatCurrency(cartTotal)}</span>
+              <span>{formatCurrency(totalPrice)}</span>
             </S.TotalWrapper>
 
             <S.CheckoutButton onClick={() => alert('Pedido finalizado!')}>

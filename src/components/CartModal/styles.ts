@@ -1,14 +1,14 @@
 import styled from 'styled-components'
 // import { theme } from '../../styles/theme'
 
-export const ModalOverlay = styled.div<{ $isOpen: boolean }>`
+export const ModalOverlay = styled.div`
   position: fixed;
   top: 0;
   right: 0;
   width: 100%;
   height: 100%;
   background: rgba(0, 0, 0, 0.7);
-  display: ${({ $isOpen }) => ($isOpen ? 'flex' : 'none')};
+  display: flex;
   justify-content: flex-end;
   z-index: 1000;
 `

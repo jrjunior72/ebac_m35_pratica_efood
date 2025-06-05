@@ -1,8 +1,7 @@
 // components/MenuItem/index.tsx
+import { useCart } from '../../hooks/useCart'
 import { useState } from 'react'
 import * as S from './styles'
-import { useCartContext } from '../../contexts/CartContext'
-// import { formatCurrency } from '../../utils/formatCurrency'
 import { MenuItem as MenuItemType } from '../../types'
 import { DishModal } from '../DishModal'
 
@@ -11,16 +10,14 @@ type MenuItemProps = {
 }
 
 export function MenuItem({ dish }: MenuItemProps) {
-  const { addToCart, cartItems } = useCartContext()
-  const [isAdding, setIsAdding] = useState(false)
   const [showModal, setShowModal] = useState(false) // Estado para controlar o modal
-  const itemInCart = cartItems.find(item => item.id === dish.id)
+  const [isAdding, setIsAdding] = useState(false)
+  const { addItem, items } = useCart()
+  const itemInCart = items.find(item => item.id === dish.id)
   const quantity = itemInCart?.quantity || 0
 
   const handleShowModal = () => {
     setIsAdding(true)
-    // addToCart(dish)
-    // setTimeout(() => setIsAdding(false), 1000)
     setShowModal(true) // Mostra o modal ao adicionar
   }
 
@@ -64,10 +61,8 @@ export function MenuItem({ dish }: MenuItemProps) {
         <DishModal
           dish={dish}
           onClose={handleCloseModal}
-          onAddToCart={() => {
-            addToCart(dish);
-            handleCloseModal();
-          }}
+          onAddToCart={() => addItem(dish)}
+
         />
       )}
     </>

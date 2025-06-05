@@ -2,7 +2,7 @@
 
 import * as S from './styles'
 import { CartItemType } from '../../types'
-import { useCartContext } from '../../contexts/CartContext'
+import { useCart } from '../../hooks/useCart' // Importe o hook do Redux
 import { formatCurrency } from '../../utils/formatCurrency'
 import  lixeira from '../../assets/images/lixeira.png'
 
@@ -11,7 +11,7 @@ type CartItemProps = {
 }
 
 export const CartItem = ({ item }: CartItemProps) => {
-  const { removeFromCart, } = useCartContext()
+  const { removeItem} = useCart() // Use o hook do Redux
 
   return (
     <S.CartItemContainer>
@@ -38,7 +38,7 @@ export const CartItem = ({ item }: CartItemProps) => {
           </S.QuantityButton>
           </S.QuantityControls> */}
       </S.ItemDetails>
-      <S.DeleteButton onClick={() => removeFromCart(item.id)}>
+      <S.DeleteButton onClick={() => removeItem(item.id)}>
         <img src={lixeira} alt='Remover' />
       </S.DeleteButton>
 

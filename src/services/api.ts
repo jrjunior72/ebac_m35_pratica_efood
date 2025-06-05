@@ -40,7 +40,7 @@ export const restaurantApi = createApi({
   })
 })
 
-// Exporte os hooks gerados automaticamente
+// Exportando os hooks gerados automaticamente
 export const {
   useGetRestaurantsQuery,
   useGetRestaurantByIdQuery

@@ -1,16 +1,11 @@
-//src/components/RestaurantHeader/index.tsx
+// src/components/RestaurantHeader/index.tsx
+import { useCart } from '../../hooks/useCart'
 import * as S from './styles'
-// import { ChevronLeft } from 'lucide-react'
-// import { useNavigate } from 'react-router-dom'
 import logo from '../../assets/images/logo.svg'
 import vector from '../../assets/images/vector.svg'
-import { useCartContext } from '../../contexts/CartContext'
 
 export function RestaurantHeader() {
-  // const navigate = useNavigate()
-  const { cartQuantity, openCart } = useCartContext()
-  // Calcula o total de itens no carrinho
-  // const totalItems = cartItems.reduce((total, item) => total + item.quantity, 0)
+  const { totalItems, toggleCart } = useCart()
 
   return (
     <S.HeaderContainer $background={vector} >
@@ -24,8 +19,8 @@ export function RestaurantHeader() {
         {/* <S.CartButton to="/cart">
           Carrinho ({totalItems})
         </S.CartButton> */}
-        <S.CartButton onClick={openCart}>
-          {cartQuantity} produto(s) no carrinho
+        <S.CartButton onClick={toggleCart}>
+          {totalItems} produto(s) no carrinho
         </S.CartButton>
       </S.HeaderContent>
     </S.HeaderContainer>
