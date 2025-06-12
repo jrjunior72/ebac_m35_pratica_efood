@@ -1,5 +1,8 @@
-import styled from 'styled-components'
+// src/components/CartModal/styles.ts
+
 // import { theme } from '../../styles/theme'
+
+import styled from 'styled-components'
 
 export const ModalOverlay = styled.div`
   position: fixed;

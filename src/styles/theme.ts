@@ -12,6 +12,8 @@ export const theme = {
     textLight: '#666666',
     accent: '#FF6B00',
     accentDark: '#E05D00',
+    highlight: '#E66767',  // Cor de destaque (ação)
+    error: '#DE2E2E',      // Erros
     modalOverlay: 'rgba(0, 0, 0, 0.7)',
   },
   fonts: {
