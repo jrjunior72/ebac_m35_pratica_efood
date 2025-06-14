@@ -33,3 +33,30 @@ export type CartItemType = {
   price: number
   quantity: number
 }
+
+export type PaymentMethodType = {
+  cardName: string
+  cardNumber: string
+  cardCVV: string
+  expiryMonth: string
+  expiryYear: string
+}
+
+export type DeliveryData = {
+  name: string
+  address: string
+  city: string
+  zipCode: string
+  number: string
+  complement?: string
+}
+
+export interface OrderData {
+  delivery: DeliveryData
+  payment: {
+    cardName: string
+    cardNumber: string // Podemos criar um tipo mais específico se necessário
+  }
+  orderId: string
+  estimatedDelivery: string
+}

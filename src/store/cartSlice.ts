@@ -1,15 +1,17 @@
 // src/store/cartSlice.ts
 import { createSlice, PayloadAction } from '@reduxjs/toolkit'
-import { MenuItem } from '../types'
+import { DeliveryData, MenuItem } from '../types'
 
 interface CartState {
   items: Array<MenuItem & { quantity: number }>
   isOpen: boolean
+  deliveryData: DeliveryData | null // Adicione esta linha
 }
 
 const initialState: CartState = {
   items: [],
-  isOpen: false
+  isOpen: false,
+  deliveryData: null
 }
 
 export const cartSlice = createSlice({
@@ -38,6 +40,9 @@ export const cartSlice = createSlice({
     },
     clearCart: (state) => {
       state.items = []
+    },
+    saveDeliveryData: (state, action: PayloadAction<DeliveryData>) => {
+      state.deliveryData = action.payload
     }
   }
 })

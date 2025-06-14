@@ -1,5 +1,6 @@
 //src/components/CartModal/index.tsx
 import { useState } from 'react'
+import { useDispatch, useSelector } from 'react-redux'
 
 import * as S from './styles'
 import { formatCurrency } from '../../utils/formatCurrency'
@@ -7,36 +8,66 @@ import { CartItem } from '../CartItem'
 import { useCart } from '../../hooks/useCart'
 import { DeliveryModal } from '../DeliveryModal'
 import { PaymentModal } from '../PaymentModal'
-
+import { ConfirmationModal } from '../ConfirmationModal'
+import { DeliveryData, PaymentMethodType } from '../../types'
+import { RootState } from '../../store'
+import {
+  setDeliveryData,
+  setPaymentData,
+  completeOrder,
+} from '../../store/checkoutSlice'
 
 export const CartModal = () => {
+  const dispatch = useDispatch()
+  const checkoutData = useSelector((state: RootState) => state.checkout)
   const {
     items,
     isOpen,
     toggleCart,
     totalPrice,
-    // clearCart
+    clearCart
   } = useCart();
 
-  const [showDeliveryModal, setShowDeliveryModal] = useState(false); // Estado para controlar o modal de entrega
-  const [showPaymentModal, setShowPaymentModal] = useState(false); // Estado para controlar o modal de pagamento
-  const [orderData, setOrderData] = useState<{
-    delivery: DeliveryData;
-    payment: PaymentMethodType;
-  }>();
+  const [showDeliveryModal, setShowDeliveryModal] = useState(false)
+  const [showPaymentModal, setShowPaymentModal] = useState(false)
+  const [showConfirmationModal, setShowConfirmationModal] = useState(false)
 
   if (!isOpen) return null
 
   const handleCheckout = () => {
     setShowDeliveryModal(true); // Abre o modal de entrega
-    // toggleCart(); // Fecha o modal do carrinho (opcional)
   };
 
   const handleDeliverySubmit = (deliveryData: DeliveryData) => {
-    // Salva os dados de entrega (se necessário)
-    setShowDeliveryModal(false);
-    setShowPaymentModal(true); // Abre o modal de pagamento
-  };
+    dispatch(setDeliveryData(deliveryData))
+    setShowDeliveryModal(false)
+    setShowPaymentModal(true)
+  }
+
+  const handlePaymentSubmit = (paymentData: PaymentMethodType) => {
+  // Simular chamada à API
+  dispatch(setPaymentData(paymentData))
+  const orderId = `ORDER-${Math.random().toString(36).substr(2, 8).toUpperCase()}`
+  const estimatedDelivery = new Date(Date.now() + 30 * 60 * 1000).toLocaleTimeString([], {
+    hour: '2-digit',
+    minute: '2-digit'
+  })
+
+  dispatch(completeOrder({
+  orderId,
+  estimatedDelivery: `${estimatedDelivery}h`
+
+}))
+
+  setShowPaymentModal(false)
+  setShowConfirmationModal(true)
+  clearCart()
+}
+
+const handleBackToHome = () => {
+  setShowConfirmationModal(false)
+  toggleCart()
+}
 
   return (
     <>
@@ -76,10 +107,12 @@ export const CartModal = () => {
       {/* Modal de Entrega */}
       {showDeliveryModal && (
         <DeliveryModal
-          onClose={() => setShowDeliveryModal(false)}
+          onClose={() => {
+            setShowDeliveryModal(false);
+            toggleCart(); // Fecha todos os modais
+          }}
           onBackToCart={() => {
             setShowDeliveryModal(false);
-            toggleCart(); // Reabre o CartModal
           }}
           onSubmit={handleDeliverySubmit}
         />
@@ -92,11 +125,19 @@ export const CartModal = () => {
             setShowPaymentModal(false);
             setShowDeliveryModal(true);
           }}
-          onConfirm={() => {
-            // Lógica para finalizar pedido
-            setShowPaymentModal(false);
-            // Mostrar tela de confirmação
+          onConfirm={handlePaymentSubmit}
+        />
+      )}
+      {showConfirmationModal && checkoutData && (
+        <ConfirmationModal
+          orderData={{
+            delivery: checkoutData.delivery!,
+            payment: checkoutData.payment!,
+            orderId: checkoutData.orderId!,
+            estimatedDelivery: checkoutData.estimatedDelivery!
           }}
+          onClose={() => setShowConfirmationModal(false)}
+          onBackToHome={handleBackToHome}
         />
       )}
     </>

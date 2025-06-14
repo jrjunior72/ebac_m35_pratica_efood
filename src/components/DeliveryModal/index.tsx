@@ -1,17 +1,10 @@
 // src/components/DeliveryModal/index.tsx
 import { Formik, Field, Form } from 'formik';
+
 import * as Yup from 'yup';
 import * as S from './styles';
 import { InputField } from './styles';
-
-interface DeliveryData {
-  name: string;
-  address: string;
-  city: string;
-  zipCode: string;
-  number: string;
-  complement?: string;
-}
+import { DeliveryData } from '../../types'
 
 interface DeliveryModalProps {
   onClose: () => void;
@@ -63,7 +56,7 @@ export const DeliveryModal = ({ onClose, onBackToCart, onSubmit }: DeliveryModal
                   as={InputField}
                   id="name"
                   name="name"
-                  placeholder="Seu nome completo"
+                  // placeholder="Seu nome completo"
                 />
                 {errors.name && touched.name && (
                   <S.ErrorMessage>{errors.name}</S.ErrorMessage>
@@ -76,7 +69,7 @@ export const DeliveryModal = ({ onClose, onBackToCart, onSubmit }: DeliveryModal
                   as={InputField}
                   id="address"
                   name="address"
-                  placeholder="Rua, avenida, etc."
+                  // placeholder="Rua, avenida, etc."
                 />
                 {errors.address && touched.address && (
                   <S.ErrorMessage>{errors.address}</S.ErrorMessage>
@@ -89,7 +82,7 @@ export const DeliveryModal = ({ onClose, onBackToCart, onSubmit }: DeliveryModal
                   as={InputField}
                   id="city"
                   name="city"
-                  placeholder="Sua cidade"
+                  // placeholder="Sua cidade"
                 />
                 {errors.city && touched.city && (
                   <S.ErrorMessage>{errors.city}</S.ErrorMessage>
@@ -103,7 +96,8 @@ export const DeliveryModal = ({ onClose, onBackToCart, onSubmit }: DeliveryModal
                     as={InputField}
                     id="zipCode"
                     name="zipCode"
-                    placeholder="00000-000"
+                    // placeholder="00000-000"
+                    mask="99999-999"
                   />
                   {errors.zipCode && touched.zipCode && (
                     <S.ErrorMessage>{errors.zipCode}</S.ErrorMessage>
@@ -116,7 +110,7 @@ export const DeliveryModal = ({ onClose, onBackToCart, onSubmit }: DeliveryModal
                     as={InputField}
                     id="number"
                     name="number"
-                    placeholder="Nº"
+                    // placeholder="Nº"
                   />
                   {errors.number && touched.number && (
                     <S.ErrorMessage>{errors.number}</S.ErrorMessage>
@@ -130,7 +124,7 @@ export const DeliveryModal = ({ onClose, onBackToCart, onSubmit }: DeliveryModal
                   as={InputField}
                   id="complement"
                   name="complement"
-                  placeholder="Apto, bloco, etc."
+                  // placeholder="Apto, bloco, etc."
                 />
               </S.FormGroup>
 

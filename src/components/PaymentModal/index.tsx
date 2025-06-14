@@ -1,32 +1,74 @@
 // src/components/PaymentModal/index.tsx
+import { useSelector } from 'react-redux';
 import { Formik, Field, Form } from 'formik';
 import * as Yup from 'yup';
+
 import * as S from './styles';
 import { formatCurrency } from '../../utils/formatCurrency';
-
-interface PaymentData {
-  cardName: string;
-  cardNumber: string;
-  cardCVV: string;
-  expiryMonth: string;
-  expiryYear: string;
-}
+import { useCheckoutMutation } from '../../services/checkoutApi' // Adicionado
+import { useCart } from '../../hooks/useCart' // Import para acessar items
+import { PaymentMethodType } from '../../types';
+import { RootState } from '../../store';
 
 interface PaymentModalProps {
   totalAmount: number;
   onClose: () => void;
   onBack: () => void;
-  onConfirm: () => void;
+  onConfirm: (paymentData: PaymentMethodType) => void; // Atualizado para receber dados
 }
 
 export const PaymentModal = ({ totalAmount, onBack, onClose, onConfirm }: PaymentModalProps) => {
-  const initialValues: PaymentData = {
+  const { items } = useCart() // Obtenha os items do carrinho
+  const deliveryData = useSelector((state: RootState) => state.checkout.delivery)
+  const [submitOrder, { isLoading }] = useCheckoutMutation()
+
+  const initialValues: PaymentMethodType = {
     cardName: '',
     cardNumber: '',
     cardCVV: '',
     expiryMonth: '',
     expiryYear: ''
   };
+
+  const onSubmit = async (values: PaymentMethodType) => {
+    if (!deliveryData) return
+
+    try {
+      // Transformar os dados para o formato da API
+      const orderData = {
+        products: items.map(item => ({
+          id: item.id,
+          price: item.price
+        })),
+        delivery: {
+          receiver: deliveryData.name,
+          address: {
+            description: deliveryData.address,
+            city: deliveryData.city,
+            zipCode: deliveryData.zipCode,
+            number: Number(deliveryData.number),
+            complement: deliveryData.complement
+          }
+        },
+        payment: {
+          card: {
+            name: values.cardName,
+            number: values.cardNumber,
+            code: Number(values.cardCVV),
+            expires: {
+              month: Number(values.expiryMonth),
+              year: Number(values.expiryYear)
+            }
+          }
+        }
+      }
+
+      await submitOrder(orderData).unwrap()
+      onConfirm(values)
+    } catch (error) {
+      console.error('Erro no checkout:', error)
+    }
+  }
 
   const validationSchema = Yup.object().shape({
     cardName: Yup.string().required('Nome é obrigatório'),
@@ -56,19 +98,16 @@ export const PaymentModal = ({ totalAmount, onBack, onClose, onConfirm }: Paymen
         <Formik
           initialValues={initialValues}
           validationSchema={validationSchema}
-          onSubmit={(values) => {
-            console.log('Dados do cartão:', values);
-            onConfirm();
-          }}
+          onSubmit={onSubmit}
         >
-          {({ errors, touched, isSubmitting }) => (
+          {({ errors, touched }) => (
             <Form>
               <S.FormGroup>
                 <S.InputLabel>Nome no cartão</S.InputLabel>
                 <Field
                   as={S.InputField}
                   name="cardName"
-                  placeholder="João Paulo de Souza"
+                  // placeholder="João Paulo de Souza"
                 />
                 {errors.cardName && touched.cardName && (
                   <S.ErrorMessage>{errors.cardName}</S.ErrorMessage>
@@ -81,7 +120,8 @@ export const PaymentModal = ({ totalAmount, onBack, onClose, onConfirm }: Paymen
                   <Field
                     as={S.InputField}
                     name="cardNumber"
-                    placeholder="0000 0000 0000 0000"
+                    // placeholder="0000 0000 0000 0000"
+                    mask="9999 9999 9999 9999"
                   />
                   {errors.cardNumber && touched.cardNumber && (
                     <S.ErrorMessage>{errors.cardNumber}</S.ErrorMessage>
@@ -92,7 +132,7 @@ export const PaymentModal = ({ totalAmount, onBack, onClose, onConfirm }: Paymen
                   <Field
                     as={S.InputField}
                     name="cardCVV"
-                    placeholder="000"
+                    // placeholder="000"
                   />
                   {errors.cardCVV && touched.cardCVV && (
                     <S.ErrorMessage>{errors.cardCVV}</S.ErrorMessage>
@@ -106,7 +146,7 @@ export const PaymentModal = ({ totalAmount, onBack, onClose, onConfirm }: Paymen
                   <Field
                     as={S.InputField}
                     name="expiryMonth"
-                    placeholder="MM"
+                    // placeholder="MM"
                   />
                   {errors.expiryMonth && touched.expiryMonth && (
                     <S.ErrorMessage>{errors.expiryMonth}</S.ErrorMessage>
@@ -118,7 +158,7 @@ export const PaymentModal = ({ totalAmount, onBack, onClose, onConfirm }: Paymen
                   <Field
                     as={S.InputField}
                     name="expiryYear"
-                    placeholder="AA"
+                    // placeholder="AA"
                   />
                   {errors.expiryYear && touched.expiryYear && (
                     <S.ErrorMessage>{errors.expiryYear}</S.ErrorMessage>
@@ -128,8 +168,8 @@ export const PaymentModal = ({ totalAmount, onBack, onClose, onConfirm }: Paymen
               </div>
 
               <S.ActionButtonsContainer>
-                <S.SubmitButton type="submit" disabled={isSubmitting}>
-                  {isSubmitting ? 'Processando...' : 'Finalizar pagamento'}
+                <S.SubmitButton type="submit" disabled={isLoading}>
+                  {isLoading ? 'Processando...' : 'Finalizar pagamento'}
                 </S.SubmitButton>
 
                 <S.BackButton type="button" onClick={onBack}>
